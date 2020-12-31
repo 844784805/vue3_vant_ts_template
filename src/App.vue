@@ -1,11 +1,27 @@
 <template>
-  <van-button type="primary">主要按钮</van-button>
-  <van-button type="success">成功按钮</van-button>
-  <van-button type="default">默认按钮</van-button>
-  <van-button type="warning">警告按钮</van-button>
-  <van-button type="danger">危险按钮</van-button>
+  <HeaderNavBar />
+  <Banner />
+  <SwiperItemLayout />
 </template>
 
-<style lang="less">
-@import '~@/assets/style/mixin.less';
-</style>
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+import HeaderNavBar from '@/components/common/HeaderNavBar.vue'
+import SwiperItemLayout from '@/components/common/SwiperItemLayout.vue'
+import Banner from '@/components/Banner.vue'
+
+export default defineComponent({
+  name: 'App',
+  components: {
+    HeaderNavBar,
+    Banner,
+    SwiperItemLayout
+  },
+  setup () {
+    return {}
+  }
+})
+</script>
+
+<style scope lang="less"></style>

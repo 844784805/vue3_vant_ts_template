@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // 全局配置
-axios.defaults.baseURL = 'http://' // 默认请求地址
+axios.defaults.baseURL = 'http://47.93.137.172:3000' // 默认请求地址
 axios.defaults.timeout = 5000 // 超时时间
 
 // 添加请求拦截器
@@ -38,7 +38,7 @@ export default {
           params: data
         })
         .then(function (response) {
-          resolve(response)
+          resolve(response.data)
         })
         .catch(function (error) {
           reject(error)

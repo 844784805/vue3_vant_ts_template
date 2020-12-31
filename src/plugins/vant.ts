@@ -1,7 +1,7 @@
 import { App } from 'vue'
-import { Button } from 'vant'
+import { NavBar } from 'vant'
 
-const plugins = [Button]
+const plugins = [NavBar]
 
 const vant = {
   install: function (app: App<Element>) {
