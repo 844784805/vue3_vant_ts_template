@@ -373,6 +373,8 @@ createApp(App)
 ```
 
 
-- 感谢
+### 感谢
+
+---
 
 [vue3-ts-template-h5](https://github.com/weizhanzhan/vue3-ts-template-h5)
