@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const path = require('path')
 const merge = require('webpack-merge')
 const tsImportPluginFactory = require('ts-import-plugin')
 const pxtoviewport = require('postcss-px-to-viewport')
 const autoprefixer = require('autoprefixer')
 
 module.exports = {
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.module
       .rule('ts')
       .use('ts-loader')
-      .tap(options => {
+      .tap((options) => {
         options = merge(options, {
           transpileOnly: true,
           getCustomTransformers: () => ({
@@ -19,7 +20,7 @@ module.exports = {
                 libraryName: 'vant',
                 libraryDirectory: 'es',
                 // 指定样式的路径
-                style: name => `${name}/style/less`
+                style: (name) => `${name}/style/less`
               })
             ]
           }),
@@ -37,7 +38,13 @@ module.exports = {
         plugins: [
           autoprefixer({
             autoprefixer: {
-              overrideBrowserslist: ['Android 4.1', 'iOS 7.1', 'Chrome > 31', 'ff > 31', 'ie >= 8']
+              overrideBrowserslist: [
+                'Android 4.1',
+                'iOS 7.1',
+                'Chrome > 31',
+                'ff > 31',
+                'ie >= 8'
+              ]
             }
           }),
           pxtoviewport({
@@ -49,14 +56,9 @@ module.exports = {
       },
       // 配置 less主题
       less: {
-        lessOptions: {
-          modifyVars: {
-            // 直接覆盖变量
-            'text-color': '#111',
-            'border-color': '#eee',
-            // 或者可以通过 less 文件覆盖（文件路径为绝对路径）
-            hack: 'true; @import "~@/theme/var.less";'
-          }
+        modifyVars: {
+          // 通过 less 文件覆盖（文件路径为绝对路径）
+          hack: `true; @import "${path.join(__dirname, './src/theme/var.less')}";`
         }
       }
     }
