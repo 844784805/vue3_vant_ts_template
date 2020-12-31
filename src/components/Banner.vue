@@ -20,7 +20,7 @@ interface Banner {
 export default defineComponent({
   name: 'Banner',
   setup () {
-    const banner = ref([])
+    const banner = ref([] as {} | [])
     const initBannerData = async () => {
       const res = (await getBannerData()) as Banner | undefined
       console.log(res)
