@@ -255,7 +255,7 @@ import 'normalize.css/normalize.css'
 }
 
 // 四边border样式
-.all-border-1px (@color:#ccc, @width) {
+.all-border-1px (@color:#ccc, @radius) {
   position: relative;
   border: none;
   &::after {
@@ -263,8 +263,8 @@ import 'normalize.css/normalize.css'
     position: absolute;
     top: 0;
     left: 0;
-    border: 2px solid @width;
-    border-radius: @width * 2;
+    border: 2px solid @color;
+    border-radius: @radius * 2;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     width: 200%;
